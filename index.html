@@ -2,99 +2,97 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>HeavyWater & SimplexWater</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body { font-family: Arial, sans-serif; max-width: 900px; margin: 2rem auto; color: #222; line-height: 1.6; }
-    header { text-align: center; margin-bottom: 2rem; }
-    header h1 { font-size: 2.2rem; margin-bottom: 0.2rem; }
-    header p.authors { margin: 0; color: #555; }
-    .links a { margin: 0 .5rem; color: #0066cc; text-decoration: none; }
-    .section { margin-bottom: 2.5rem; }
-    .cards { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .card { flex: 1; min-width: 200px; background: #f0f8ff; padding: 1rem; border-radius: 6px; }
-    img { max-width: 100%; display: block; margin: 1rem 0; border-radius: 4px; }
-    pre { background: #f9f9f9; padding: 1rem; border-radius: 4px; overflow-x: auto; }
-    footer { text-align: center; font-size: 0.9rem; color: #777; margin-top: 3rem; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HeavyWater &amp; SimplexWater</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-  <header>
-    <h1>HeavyWater and SimplexWater:
-        Watermarking Low-Entropy Text Distributions</h1>
-    <!-- <p class="authors">Dor Tsur, Carol Xuan Long, Claudio M. Verdun, Sajani Vithana, Hsiang Hsu, Richard Chen, Haim Permuter, Flavio P. Calmon</p> -->
-    <p class="authors"><a href="https://sites.google.com/view/dortsur/home">Dor Tsur</a>, <a href="https://carol-long.github.io/">Carol Xuan Long</a>, <a href="https://claudioverdun.github.io/">Claudio M. Verdun</a>, <a href="https://scholar.google.com/citations?user=_hSfZbMAAAAJ&hl=en">Sajani Vithana</a>, <a href="https://www.ee.bgu.ac.il/~haimp/">Haim Permuter</a>, <a href="https://people.seas.harvard.edu/~flavio/">Flavio P. Calmon</a></p>
-    <div class="links">
-      <a href="https://arxiv.org">📄 Read on arXiv</a>
-      <a href="https://github.com/DorTsur/HeavySimplex">💻 Code</a>
-      <a href="#citation">📑 Cite</a>
-    </div>
-  </header>
+  <!-- Navigation -->
+  <nav id="navbar">
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#abstract">Abstract</a></li>
+      <li><a href="#methods">Methods</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-  <!-- Abstract -->
-  <section class="section" id="abstract">
-    <h2>Abstract</h2>
-    <p>[Full abstract goes here.]</p>
+  <!-- Hero Section -->
+  <section id="hero">
+    <h1>HeavyWater &amp; SimplexWater</h1>
+    <p>Optimal LLM watermarking in low-entropy regimes</p>
+    <!-- ← Add your authors line here ↓ -->
+    <p class="authors">
+      <a href="https://sites.google.com/view/dortsur/home">Dor Tsur</a>,
+      <a href="https://carol-long.github.io/">Carol Xuan Long</a>,
+      <a href="https://claudioverdun.github.io/">Claudio M. Verdun</a>,
+      <a href="https://scholar.google.com/citations?user=_hSfZbMAAAAJ&hl=en">Sajani Vithana</a>,
+      <a href="https://www.ee.bgu.ac.il/~haimp/">Haim Permuter</a>,
+      <a href="https://people.seas.harvard.edu/~flavio/">Flavio P. Calmon</a>
+    </p>
+    <p><a href="https://arxiv.org/" target="_blank">arXiv</a></p>
+    <p><a href="https://github.com/DorTsur" target="_blank">GitHub</a></p>
   </section>
 
-  <!-- Contributions -->
-  <section class="section">
-    <h2>Key Contributions</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>SimplexWater</h3>
-        <p>Optimal binary watermark via simplex coding (Plotkin bound).</p>
-      </div>
-      <div class="card">
-        <h3>HeavyWater</h3>
-        <p>Heavy-tailed score functions generalizing Gumbel for robust detection.</p>
-      </div>
-      <div class="card">
-        <h3>Distortion-Free OT</h3>
-        <p>Sinkhorn transport with tilting for distortion control.</p>
-      </div>
-    </div>
+  <!-- Abstract -->
+  <section id="abstract">
+    <h2>Abstract</h2>
+    <p>Large language model (LLM) watermarks  enable authentication of text provenance, curb misuse of machine-generated text, and promote trust in AI systems. 
+Current watermarks operate by changing the next-token predictions output by an LLM. 
+The updated (i.e., watermarked) predictions depend on random side information produced, for example, by hashing previously generated tokens. 
+LLM watermarking is particularly challenging in low-entropy generation tasks -- such as coding -- where next-token predictions are near-deterministic. 
+In this paper, we propose an optimization framework for watermark design. 
+Our goal is to understand how to most effectively use random side information in order to maximize the likelihood of watermark detection and minimize the distortion of generated text. 
+Our analysis informs the design of two new watermarks: HeavyWater{} and SimplexWater{}. Both watermarks are tunable, gracefully trading-off between detection accuracy and text distortion. They can also be applied to any LLM and are agnostic to side information generation.  We examine the performance of HeavyWater{} and SimplexWater{} through several benchmarks, demonstrating that they can achieve high watermark detection accuracy with minimal compromise of text generation quality, particularly in the low-entropy regime. Our theoretical analysis also reveals surprising new connections between LLM watermarking and coding theory.</p>
   </section>
 
   <!-- Methods -->
-  <section class="section">
-    <h2>Watermarking Framework</h2>
-    <!-- Figure 2 from the paper: the block-diagram of watermark generation -->
-    <!-- <img src="images/fig2_framework.png" alt="Fig 2: Watermarking framework"> -->
-    <pre>
-// Algorithm 1 (simplified)
-function watermark(Px, f, s, δ):
-  C = –f(x, s)
-  Pxs = Sinkhorn(C, Px, Uniform)
-  Pw(x|s) = k * Pxs(x, s)
-  if δ > 0:
-    Pw = tilt(Pw, f, δ)
-  return Pw
-    </pre>
+  <section id="methods">
+    <h2>Methods</h2>
+    <h3>SimplexWater</h3>
+    <p>Brief description and intuition.</p>
+    <h3>HeavyWater</h3>
+    <p>Brief description and intuition.</p>
   </section>
 
   <!-- Results -->
-  <section class="section">
-    <h2>Detection vs. Distortion</h2>
-    <!-- Figure 1: p-value vs. cross-entropy curve -->
-    <!-- <img src="images/fig1_tradeoff.png" alt="Fig 1: Detection p-value vs. distortion"> -->
-    <p>Both methods achieve strong detection with low distortion.</p>
-
-    <h3>ROC Curves (Fig 3)</h3>
-    <!-- Figure 3 from paper: ROC curves comparing methods -->
-    <!-- <img src="images/fig3_roc.png" alt="Fig 3: ROC curves"> -->
+  <section id="results">
+    <h2>Results</h2>
+    <p>Key detection–distortion tradeoff curves and tables.</p>
   </section>
 
-  <!-- BibTeX -->
-  <section class="section" id="citation">
-    <h2>BibTeX</h2>
-    <pre>
-TBD.
-    </pre>
+  <!-- Gallery -->
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="image-grid">
+      <!-- Thumbnail images linking to full-size versions -->
+    </div>
   </section>
 
+  <!-- Resources -->
+  <section id="resources">
+    <h2>Resources</h2>
+    <ul>
+      <li><a href="https://github.com/DorTsur/HeavySimplexWebsite" target="_blank">Code &amp; Installation</a></li>
+      <li><a href="#">Data &amp; Benchmarks</a></li>
+      <li><a href="#">Supplementary Materials</a></li>
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Dor Tsur, Harvard Kennedy School</p>
+    <p><a href="mailto:dortsur@fas.harvard.edu">dortsur@fas.harvard.edu</a></p>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    *Equal contribution • Contact: dortz@post.bgu.ac.il
+    <p>&copy; 2025 Dor Tsur. <a href="https://dortsur.github.io/HeavySimplexWebsite">https://dortsur.github.io/HeavySimplexWebsite</a></p>
   </footer>
+
 </body>
 </html>
