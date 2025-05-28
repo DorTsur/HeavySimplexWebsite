@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HeavyWater & SimplexWater</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 2rem auto; color: #222; line-height: 1.6; }
+    header { text-align: center; margin-bottom: 2rem; }
+    header h1 { font-size: 2.2rem; margin-bottom: 0.2rem; }
+    header p.authors { margin: 0; color: #555; }
+    .links a { margin: 0 .5rem; color: #0066cc; text-decoration: none; }
+    .section { margin-bottom: 2.5rem; }
+    .cards { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .card { flex: 1; min-width: 200px; background: #f0f8ff; padding: 1rem; border-radius: 6px; }
+    img { max-width: 100%; display: block; margin: 1rem 0; border-radius: 4px; }
+    pre { background: #f9f9f9; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    footer { text-align: center; font-size: 0.9rem; color: #777; margin-top: 3rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HeavyWater & SimplexWater</h1>
+    <p class="authors">Dor Tsur*, Carol Xuan Long*, Claudio M. Verdun, …</p>
+    <div class="links">
+      <a href="https://arxiv.org/abs/…">📄 Read on arXiv</a>
+      <a href="https://github.com/DorTsur/HeavySimplex">💻 Code</a>
+      <a href="#bibtex">📑 Cite</a>
+    </div>
+  </header>
+
+  <!-- Abstract -->
+  <section class="section" id="abstract">
+    <h2>Abstract</h2>
+    <p>[Full abstract goes here.]</p>
+  </section>
+
+  <!-- Contributions -->
+  <section class="section">
+    <h2>Key Contributions</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>SimplexWater</h3>
+        <p>Optimal binary watermark via simplex coding (Plotkin bound).</p>
+      </div>
+      <div class="card">
+        <h3>HeavyWater</h3>
+        <p>Heavy-tailed score functions generalizing Gumbel for robust detection.</p>
+      </div>
+      <div class="card">
+        <h3>Distortion-Free OT</h3>
+        <p>Sinkhorn transport with tilting for distortion control.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Methods -->
+  <section class="section">
+    <h2>Watermarking Framework</h2>
+    <!-- Figure 2 from the paper: the block-diagram of watermark generation -->
+    <img src="images/fig2_framework.png" alt="Fig 2: Watermarking framework">
+    <pre>
+// Algorithm 1 (simplified)
+function watermark(Px, f, s, δ):
+  C = –f(x, s)
+  Pxs = Sinkhorn(C, Px, Uniform)
+  Pw(x|s) = k * Pxs(x, s)
+  if δ > 0:
+    Pw = tilt(Pw, f, δ)
+  return Pw
+    </pre>
+  </section>
+
+  <!-- Results -->
+  <section class="section">
+    <h2>Detection vs. Distortion</h2>
+    <!-- Figure 1: p-value vs. cross-entropy curve -->
+    <img src="images/fig1_tradeoff.png" alt="Fig 1: Detection p-value vs. distortion">
+    <p>Both methods achieve strong detection with low distortion.</p>
+
+    <h3>ROC Curves (Fig 3)</h3>
+    <!-- Figure 3 from paper: ROC curves comparing methods -->
+    <img src="images/fig3_roc.png" alt="Fig 3: ROC curves">
+  </section>
+
+  <!-- BibTeX -->
+  <section class="section" id="bibtex">
+    <h2>BibTeX</h2>
+    <pre>
+@inproceedings{tsur2025heavywater,
+  title={HeavyWater and SimplexWater: Watermarking Low-Entropy Text Distributions},
+  author={Tsur, Dor and Long, Carol Xuan and Verdun, Claudio M. and …},
+  booktitle={Under review},
+  year={2025}
+}
+    </pre>
+  </section>
+
+  <footer>
+    *Equal contribution • Contact: dortz@post.bgu.ac.il
+  </footer>
+</body>
+</html>
