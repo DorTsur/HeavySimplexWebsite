@@ -66,12 +66,14 @@ title: "HeavyWater & SimplexWater"
   </div>
 
   <!-- Methods -->
-  <section id="methods">
+  <section id="Methodologies">
     <h2>Methods</h2>
     <h3 id="SimplexWater"><code>SimplexWater</code></h3>
-    <p>Generates a binary score by bitwise dot-product of token bits and a secret seed, then uses optimal transport (Sinkhorn) to embed a distortion-free watermark, optionally tilting probabilities to improve detectability.</p>
+    <p>Generates a binary score by bitwise dot-product of token bits and a secret seed; driven by coding theory as a simplex code, it embeds a distortion-free watermark, with optional tilting for detectability.</p>
     <h3 id="HeavyWater"><code>HeavyWater</code></h3>
-    <p>Samples heavy-tailed scores (e.g., log-normal/Gumbel), embeds them via the same OT pipeline for a continuous watermark, and optionally amplifies high-scoring tokens for stronger detection.</p>
+    <p>Samples heavy-tailed scores (e.g., log-normal/Gumbel) and embeds them via the same OT pipeline for a continuous watermark, with optional amplification of high scores.</p>
+    <h3 id="Optimal Transport Driven Solution"><code>Optimal Transport</code></h3>
+    <p>Having chosen a score function, for each next token distribution we solve an OT using Sinkhorn's algorithm, resulting with a distortion-free watermarked distribution.</p>
   </section>
 
   <!-- Results -->
@@ -94,8 +96,6 @@ title: "HeavyWater & SimplexWater"
     <h2>Resources</h2>
     <ul>
       <li><a href="https://github.com/DorTsur/HeavySimplexWebsite" target="_blank">Code &amp; Installation</a></li>
-      <li><a href="#">Data &amp; Benchmarks</a></li>
-      <li><a href="#">Supplementary Materials</a></li>
     </ul>
   </section>
 
