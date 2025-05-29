@@ -11,18 +11,7 @@ title: "HeavyWater & SimplexWater"
   <title>{{ page.title }}</title>
 </head>
 <body>
-  <!-- Navigation -->
-  <!-- <nav id="navbar">
-    <ul>
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#abstract">Abstract</a></li>
-      <li><a href="#methods">Methods</a></li>
-      <li><a href="#results">Results</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#resources">Resources</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav> -->
+
 
   <!-- Hero Section -->
   <section id="hero">
@@ -40,18 +29,31 @@ title: "HeavyWater & SimplexWater"
     <p><a href="https://github.com/DorTsur/HeavySimplexWebsite" target="_blank">View code on GitHub</a></p>
   </section>
 
+  <!-- System Image before Abstract -->
+  <img src="/assets/images/system.png" alt="System Diagram" style="display:block; margin:2rem auto; max-width:400px;">
+
   <!-- Abstract -->
   <section id="abstract">
     <h2>Abstract</h2>
     <p>Large language model (LLM) watermarks enable authentication of text provenance, curb misuse of machine-generated text, and promote trust in AI systems. Current watermarks operate by changing the next-token predictions output by an LLM. The updated (i.e., watermarked) predictions depend on random side information produced, for example, by hashing previously generated tokens. LLM watermarking is particularly challenging in low-entropy generation tasks—such as coding—where next-token predictions are near-deterministic. In this paper, we propose an optimization framework for watermark design. Our goal is to understand how to most effectively use random side information in order to maximize the likelihood of watermark detection and minimize the distortion of generated text. Our analysis informs the design of two new watermarks: <code>\heavywater{}</code> and <code>\simplexwater{}</code>. Both watermarks are tunable, gracefully trading-off between detection accuracy and text distortion. They can also be applied to any LLM and are agnostic to side information generation. We examine the performance of <code>\heavywater{}</code> and <code>\simplexwater{}</code> through several benchmarks, demonstrating that they can achieve high watermark detection accuracy with minimal compromise of text generation quality, particularly in the low-entropy regime. Our theoretical analysis also reveals surprising new connections between LLM watermarking and coding theory.</p>
   </section>
 
+  <!-- Simplex and Heavy Images Side by Side -->
+  <div style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0;">
+    <a href="#SimplexWater">
+      <img src="/assets/images/simplex.png" alt="SimplexWater" style="max-width:200px; border-radius:8px;">
+    </a>
+    <a href="#HeavyWater">
+      <img src="/assets/images/heavy.png" alt="HeavyWater" style="max-width:200px; border-radius:8px;">
+    </a>
+  </div>
+
   <!-- Methods -->
   <section id="methods">
     <h2>Methods</h2>
-    <h3>SimplexWater</h3>
+    <h3 id="SimplexWater">SimplexWater</h3>
     <p>Brief description and intuition.</p>
-    <h3>HeavyWater</h3>
+    <h3 id="HeavyWater">HeavyWater</h3>
     <p>Brief description and intuition.</p>
   </section>
 
