@@ -69,27 +69,27 @@ title: "HeavyWater & SimplexWater"
   <section id="methods">
     <h2>Methods</h2>
     <h3 id="SimplexWater"><code>SimplexWater</code></h3>
-    <p>Brief description and intuition.</p>
+    <p>Generates a binary score by bitwise dot-product of token bits and a secret seed, then uses optimal transport (Sinkhorn) to embed a distortion-free watermark, optionally tilting probabilities to improve detectability.</p>
     <h3 id="HeavyWater"><code>HeavyWater</code></h3>
-    <p>Brief description and intuition.</p>
+    <p>Samples heavy-tailed scores (e.g., log-normal/Gumbel), embeds them via the same OT pipeline for a continuous watermark, and optionally amplifies high-scoring tokens for stronger detection.</p>
   </section>
 
   <!-- Results -->
   <section id="results">
     <h2>Results</h2>
-    <p>Key detection-distortion tradeoff curves and tables.</p>
+    <!-- <p>Key detection-distortion tradeoff curves and tables.</p> -->
+    <div style="margin-bottom: 1.5rem;">
+        <div style="margin-bottom: 1.0rem;">Our watermarks achieve the best tradeoff</div>
+        <img src="assets/images/tradeoff.png" alt="Tradeoff" style="max-width: 500px; border-radius: 8px;">
+      </div>
     <div style="text-align: center; margin: 2rem 0;">
       <div style="margin-bottom: 1.5rem;">
-        <div style="margin-bottom: 0.5rem;">Caption for Improvement</div>
-        <img src="assets/images/improvement.png" alt="Improvement" style="max-width: 400px; border-radius: 8px;">
-      </div>
-      <div style="margin-bottom: 1.5rem;">
-        <div style="margin-bottom: 0.5rem;">Caption for Tradeoff</div>
-        <img src="assets/images/tradeoff.png" alt="Tradeoff" style="max-width: 400px; border-radius: 8px;">
+        <div style="margin-bottom: 1.0rem;">Replacing the Red-Green watermark with ours can improve performance by up to 250%</div>
+        <img src="assets/images/improvement.png" alt="Improvement" style="max-width: 500px; border-radius: 8px;">
       </div>
       <div>
-        <div style="margin-bottom: 0.5rem;">Caption for Watermark Size</div>
-        <img src="assets/images/watermark_Size.png" alt="Watermark Size" style="max-width: 400px; border-radius: 8px;">
+        <div style="margin-bottom: 1.0rem;">Our watermarks require the least tkens for detection</div>
+        <img src="assets/images/watermark_Size.png" alt="Watermark Size" style="max-width: 500px; border-radius: 8px;">
       </div>
     </div>
   </section>
