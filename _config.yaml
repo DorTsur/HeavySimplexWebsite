@@ -1,4 +1,5 @@
-theme: minima
 remote_theme: pages-themes/minimal@v0.2.0
+title: SimplexWater and HeavyWater
+description: Watermarking Low-Entropy Text Distributions
 plugins:
 - jekyll-remote-theme
