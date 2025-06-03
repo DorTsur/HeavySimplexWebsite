@@ -1,127 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }}</title>
-  <style>
-    body {
-      max-width: 1200px;
-      margin: 2rem auto;
-    }
-    #hero h1, #hero h1 code {
-      font-size: 2.8rem;
-    }
-    #hero h1 span {
-      font-size: 1.5rem;
-    }
-  </style>
-</head>
-<body>
+---
+layout: default
+title: SimplexWater and HeavyWater
+---
 
+<section id="hero" class="text-center">
+  <h1>
+    <code>SimplexWater</code> and <code>HeavyWater</code>:<br>
+    <span>Watermarking Low-Entropy Text Distributions</span>
+  </h1>
+  <p class="authors">
+    <a href="https://sites.google.com/view/dortsur/home">Dor Tsur*</a>,
+    <a href="https://carol-long.github.io/">Carol Xuan Long*</a>,
+    <a href="https://claudioverdun.github.io/">Claudio M. Verdun</a>,
+    <a href="https://scholar.google.com/citations?user=_hSfZbMAAAAJ&hl=en">Sajani Vithana</a>,
+    <a href="https://hsianghsu.github.io/">Hsian Hsu</a>,
+    <a href="https://www.jpmorgan.com/technology/applied-research/richard-chen">Richard Chen</a>,
+    <a href="https://www.ee.bgu.ac.il/~haimp/">Haim Permuter</a>,
+    <a href="https://people.seas.harvard.edu/~flavio/">Flavio P. Calmon</a>
+  </p>
+  <div class="links">
+    <a href="/assets/paper/IT_Watermarking_LLM.pdf" target="_blank">
+      <img src="assets/images/arxiv_logo.jpeg" alt="arXiv">
+    </a>
+    <a href="https://github.com/DorTsur/HeavySimplexWebsite" target="_blank">
+      <img src="assets/images/github_logo.png" alt="GitHub">
+    </a>
+  </div>
+</section>
 
-  <!-- Hero Section -->
-  <section id="hero" style="text-align: center;">
-    <h1 style="font-size: 2.5rem;">
-      <code>SimplexWater</code> and <code>HeavyWater</code>:<br>
-      <span style="font-weight: normal; font-size: 2.1rem;">Watermarking Low-Entropy Text Distributions</span>
-    </h1>
-    <p class="authors" style="text-align: center;">
-      <a href="https://sites.google.com/view/dortsur/home">Dor Tsur*</a>,
-      <a href="https://carol-long.github.io/">Carol Xuan Long*</a>,
-      <a href="https://claudioverdun.github.io/">Claudio M. Verdun</a>,
-      <a href="https://scholar.google.com/citations?user=_hSfZbMAAAAJ&hl=en">Sajani Vithana</a>,
-      <a href="https://hsianghsu.github.io/">Hsian Hsu</a>,
-      <a href="https://www.jpmorgan.com/technology/applied-research/richard-chen">Richard Chen</a>,
-      <a href="https://www.ee.bgu.ac.il/~haimp/">Haim Permuter</a>,
-      <a href="https://people.seas.harvard.edu/~flavio/">Flavio P. Calmon</a>
-    </p>
-    <div style="margin: 1rem 0;">
-      <a href="/assets/paper/IT_Watermarking_LLM.pdf" target="_blank" style="vertical-align: middle;">
-        <img src="assets/images/arxiv_logo.jpeg" alt="arXiv" style="height: 60px; vertical-align: middle;">
-      </a>
-      &nbsp;|&nbsp;
-      <a href="https://github.com/DorTsur/HeavySimplexWebsite" target="_blank" style="vertical-align: middle;">
-        <img src="assets/images/github_logo.png" alt="GitHub" style="height: 60px; vertical-align: middle;">
-      </a>
-    </div>
-  </section>
+<img src="assets/images/system.png" alt="System Diagram" class="system-diagram">
 
- 
+<div class="method-images">
+  <a href="#SimplexWater">
+    <img src="assets/images/simplex.png" alt="SimplexWater">
+  </a>
+  <a href="#HeavyWater">
+    <img src="assets/images/heavy.png" alt="HeavyWater">
+  </a>
+</div>
 
-  <!-- System Image before Abstract -->
-  <img src="assets/images/system.png" alt="System Diagram" style="display:block; margin:2rem auto; max-width:700px;">
+<section id="TL;DR">
+  <h2>TL;DR</h2>
+  <p class="highlight">Using coding theory, heavy tailed distributions and optimal transport, we propose two new watermarks and show their optimality; both theoretically and empirically.</p>
+</section>
 
-    <!-- Simplex and Heavy Images Side by Side -->
-    <div style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0;">
-      <a href="#SimplexWater">
-        <img src="assets/images/simplex.png" alt="SimplexWater" style="max-width:150px; border-radius:8px;">
-      </a>
-      <a href="#HeavyWater">
-        <img src="assets/images/heavy.png" alt="HeavyWater" style="max-width:150px; border-radius:8px;">
-      </a>
-    </div>
+<section id="abstract">
+  <h2>Abstract</h2>
+  <p>Large language model (LLM) watermarks enable authentication of text provenance, curb misuse of machine-generated text, and promote trust in AI systems. Current watermarks operate by changing the next-token predictions output by an LLM. The updated (i.e., watermarked) predictions depend on random side information produced, for example, by hashing previously generated tokens. LLM watermarking is particularly challenging in low-entropy generation tasks—such as coding—where next-token predictions are near-deterministic. In this paper, we propose an optimization framework for watermark design. Our goal is to understand how to most effectively use random side information in order to maximize the likelihood of watermark detection and minimize the distortion of generated text. Our analysis informs the design of two new watermarks: HeavyWater and SimplexWater. Both watermarks are tunable, gracefully trading-off between detection accuracy and text distortion. They can also be applied to any LLM and are agnostic to side information generation. We examine the performance of HeavyWater and SimplexWater through several benchmarks, demonstrating that they can achieve high watermark detection accuracy with minimal compromise of text generation quality, particularly in the low-entropy regime. Our theoretical analysis also reveals surprising new connections between LLM watermarking and coding theory.</p>
+</section>
 
-  <!-- Abstract -->
-   <section id="TL;DR">
-    <h2>TL;DR</h2>
-    <p style="font-size: 1.35rem; font-weight: 500;">Using coding theory, heavy tailed distributions and optimal transport, we propose two new watermarks and show their optimality; both theoretically and empirically.</p>
-  </section>
-    <!-- Abstract -->
-    <section id="abstract">
-      <h2>Abstract</h2>
-      <p>Large language model (LLM) watermarks enable authentication of text provenance, curb misuse of machine-generated text, and promote trust in AI systems. Current watermarks operate by changing the next-token predictions output by an LLM. The updated (i.e., watermarked) predictions depend on random side information produced, for example, by hashing previously generated tokens. LLM watermarking is particularly challenging in low-entropy generation tasks—such as coding—where next-token predictions are near-deterministic. In this paper, we propose an optimization framework for watermark design. Our goal is to understand how to most effectively use random side information in order to maximize the likelihood of watermark detection and minimize the distortion of generated text. Our analysis informs the design of two new watermarks: HeavyWater and SimplexWater. Both watermarks are tunable, gracefully trading-off between detection accuracy and text distortion. They can also be applied to any LLM and are agnostic to side information generation. We examine the performance of HeavyWater and SimplexWater through several benchmarks, demonstrating that they can achieve high watermark detection accuracy with minimal compromise of text generation quality, particularly in the low-entropy regime. Our theoretical analysis also reveals surprising new connections between LLM watermarking and coding theory.</p>
-    </section>
+<section id="Methodologies">
+  <h2>Methods</h2>
+  <h3 id="SimplexWater"><code>SimplexWater</code></h3>
+  <p>For binary scores: We reformulate the watermark detection problem as a certain coding theory problem, and obtain an optimal watermark for binary scores.</p>
+  
+  <h3 id="HeavyWater"><code>HeavyWater</code></h3>
+  <p>For continuous scores: We consider random scores and show that drawing scores from a heavy-tailed distribution increases detection. This method generalizes the Gumbel watermark.</p>
+  
+  <h3 id="Optimal Transport Driven Solution"><code>Optimal Transport</code></h3>
+  <p>Given a score function and an LLM distribution, we formulate zero distortion watermarking as an optimal transport, which we efficiently solve with Sinkhorn's algorithm.</p>
+</section>
 
- 
+<section id="results" class="text-center">
+  <h2>Results</h2>
+  <div class="results-container">
+    <div class="result-text">Our watermarks achieve the best detection-distortion tradeoff</div>
+    <img src="assets/images/tradeoff.png" alt="Tradeoff">
+    
+    <div class="result-text">Replacing the Red-Green watermark with ours can improve performance by up to 250% under various hashing schemes</div>
+    <img src="assets/images/improvement.png" alt="Improvement">
+    
+    <div class="result-text">Our watermarks require the least tkens for detection</div>
+    <img src="assets/images/watermark_Size.png" alt="Watermark Size">
+  </div>
+</section>
 
-  <!-- Methods -->
-  <section id="Methodologies">
-    <h2>Methods</h2>
-    <h3 id="SimplexWater"><code>SimplexWater</code></h3>
-    <p>For binary scores: We reformulate the watermark detection problem as a certain coding theory problem, and obtain an optimal watermark for binary scores.</p>
-    <h3 id="HeavyWater"><code>HeavyWater</code></h3>
-    <p>For continuous scores: We consider random scores and show that drawing scores from a heavy-tailed distribution increases detection. This method generalizes the Gumbel watermark.</p>
-    <h3 id="Optimal Transport Driven Solution"><code>Optimal Transport</code></h3>
-    <p>Given a score function and an LLM distribution, we formulate zero distortion watermarking as an optimal transport, which we efficiently solve with Sinkhorn's algorithm.</p>
-  </section>
-
-   
-
-  <!-- Results -->
-  <section id="results" style="text-align: center;">
-    <h2 style="text-align: left;">Results</h2>
-    <!-- <p>Key detection-distortion tradeoff curves and tables.</p> -->
-    <div style="margin: 2rem 0;">
-      <div style="margin-bottom: 2.0rem; font-size: 1.35rem; font-weight: 500;">Our watermarks achieve the best detection-distortion tradeoff</div>
-      <img src="assets/images/tradeoff.png" alt="Tradeoff" style="max-width: 500px; border-radius: 8px;">
-      <div style="margin-bottom: 2.0rem; margin-top: 2.0rem; font-size: 1.35rem; font-weight: 500;">Replacing the Red-Green watermark with ours can improve performance by up to 250% under various hashing schemes</div>
-      <img src="assets/images/improvement.png" alt="Improvement" style="max-width: 500px; border-radius: 8px;">
-      <div style="margin-bottom: 2.0rem; margin-top: 2.0rem; font-size: 1.35rem; font-weight: 500;">Our watermarks require the least tkens for detection</div>
-      <img src="assets/images/watermark_Size.png" alt="Watermark Size" style="max-width: 500px; border-radius: 8px;">
-    </div>
-  </section>
-
-
-  <!-- Resources -->
-  <!-- <section id="resources">
-    <h2>Resources</h2>
-    <ul>
-      <li><a href="https://github.com/DorTsur/HeavySimplexWebsite" target="_blank">Code &amp; Installation</a></li>
-    </ul>
-  </section> -->
-
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contacts</h2>
-    <p>Dor Tsur <a href="mailto:dortsur93@gmail.com">dortsur93@gmail.com</a></p>
-    <p>Carol Long <a href="mailto:carol_long@g.harvard.edu">carol_long@g.harvard.edu</a></p>
-  </section>
-
-  <!-- Footer -->
-  <!-- <footer>
-    <p>&copy; 2025 Dor Tsur. <a href="https://dortsur.github.io/HeavySimplexWebsite">https://dortsur.github.io/HeavySimplexWebsite</a></p>
-  </footer> -->
-
-</body>
-</html>
+<section id="contact">
+  <h2>Contacts</h2>
+  <p>Dor Tsur <a href="mailto:dortsur93@gmail.com">dortsur93@gmail.com</a></p>
+  <p>Carol Long <a href="mailto:carol_long@g.harvard.edu">carol_long@g.harvard.edu</a></p>
+</section>
