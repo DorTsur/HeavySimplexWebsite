@@ -40,17 +40,17 @@ title: SimplexWater and HeavyWater
 </div>
 
 <section id="TL;DR">
-  <h2>TL;DR</h2>
+  <h2 style="font-size: 2rem; margin: 2rem 0;">TL;DR</h2>
   <p class="highlight">Using coding theory, heavy tailed distributions and optimal transport, we propose two new watermarks and show their optimality; both theoretically and empirically.</p>
 </section>
 
 <section id="abstract">
-  <h2>Abstract</h2>
+  <h2 style="font-size: 2rem; margin: 2rem 0;">Abstract</h2>
   <p>Large language model (LLM) watermarks enable authentication of text provenance, curb misuse of machine-generated text, and promote trust in AI systems. Current watermarks operate by changing the next-token predictions output by an LLM. The updated (i.e., watermarked) predictions depend on random side information produced, for example, by hashing previously generated tokens. LLM watermarking is particularly challenging in low-entropy generation tasks—such as coding—where next-token predictions are near-deterministic. In this paper, we propose an optimization framework for watermark design. Our goal is to understand how to most effectively use random side information in order to maximize the likelihood of watermark detection and minimize the distortion of generated text. Our analysis informs the design of two new watermarks: HeavyWater and SimplexWater. Both watermarks are tunable, gracefully trading-off between detection accuracy and text distortion. They can also be applied to any LLM and are agnostic to side information generation. We examine the performance of HeavyWater and SimplexWater through several benchmarks, demonstrating that they can achieve high watermark detection accuracy with minimal compromise of text generation quality, particularly in the low-entropy regime. Our theoretical analysis also reveals surprising new connections between LLM watermarking and coding theory.</p>
 </section>
 
 <section id="Methodologies">
-  <h2>Methods</h2>
+  <h2 style="font-size: 2rem; margin: 2rem 0;">Methods</h2>
   <h3 id="SimplexWater"><code>SimplexWater</code></h3>
   <p>For binary scores: We reformulate the watermark detection problem as a certain coding theory problem, and obtain an optimal watermark for binary scores.</p>
   
@@ -66,7 +66,7 @@ title: SimplexWater and HeavyWater
 </section>
 
 <section id="results" class="text-center">
-  <h2 style="font-size: 2.5rem; margin: 2rem 0;">Results</h2>
+  <h2 style="font-size: 2rem; margin: 2rem 0;">Results</h2>
   <div style="margin: 2rem 0; text-align: center;">
     <div style="margin: 2rem 0; font-size: 1.35rem; font-weight: 500;">Our watermarks achieve the best detection-distortion tradeoff</div>
     <img src="assets/images/tradeoff.png" alt="Tradeoff" style="max-width: 500px; border-radius: 8px;">
@@ -80,7 +80,7 @@ title: SimplexWater and HeavyWater
 </section>
 
 <section id="contact">
-  <h2>Contacts</h2>
+  <h2 style="font-size: 2rem; margin: 2rem 0;">Contacts</h2>
   <p>Dor Tsur <a href="mailto:dortsur93@gmail.com">dortsur93@gmail.com</a></p>
   <p>Carol Long <a href="mailto:carol_long@g.harvard.edu">carol_long@g.harvard.edu</a></p>
 </section>
