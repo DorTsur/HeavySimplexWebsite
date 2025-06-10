@@ -11,7 +11,7 @@ title: SimplexWater and HeavyWater
   <p class="authors">
     <a href="https://sites.google.com/view/dortsur/home">Dor Tsur*</a>,
     <a href="https://carol-long.github.io/">Carol Xuan Long*</a>,
-    <a href="https://claudioverdun.github.io/">Claudio M. Verdun</a>,
+    <a href="https://claudioverdun.github.io/">Claudio Mayrink Verdun</a>,
     <a href="https://scholar.google.com/citations?user=_hSfZbMAAAAJ&hl=en">Sajani Vithana</a>,
     <a href="https://hsianghsu.github.io/">Hsian Hsu</a>,
     <a href="https://www.jpmorgan.com/technology/applied-research/richard-chen">Richard Chen</a>,
@@ -19,10 +19,10 @@ title: SimplexWater and HeavyWater
     <a href="https://people.seas.harvard.edu/~flavio/">Flavio P. Calmon</a>
   </p>
   <div class="links">
-    <a href="/assets/paper/IT_Watermarking_LLM.pdf" target="_blank">
+    <a href="http://arxiv.org/abs/2506.06409" target="_blank">
       <img src="assets/images/arxiv_logo.jpeg" alt="arXiv" style="height: 60px;">
     </a>
-    <a href="https://github.com/DorTsur/HeavySimplexWebsite" target="_blank">
+    <a href="https://github.com/DorTsur/HeavyWater_SimplexWater" target="_blank">
       <img src="assets/images/github_logo.png" alt="GitHub" style="height: 60px;">
     </a>
   </div>
@@ -59,6 +59,10 @@ title: SimplexWater and HeavyWater
   
   <h3 id="Optimal Transport Driven Solution"><code>Optimal Transport</code></h3>
   <p>Given a score function and an LLM distribution, we formulate zero distortion watermarking as an optimal transport, which we efficiently solve with Sinkhorn's algorithm.</p>
+
+  <h3 id="Distribution Tilting"><code>Distribution Tilting</code></h3>
+  <p>Given a watermarked distribution, we can use the score function to further improve detection by rewighing it. The tilting procedure is given in a closed form. SimplexWater and HeavyWater differ by the exact tilting formula, but both follow a similar principle - Given side information s, increase the probability of tokens with score higher than the mean score.</p>
+
 </section>
 
 <section id="results" class="text-center">
